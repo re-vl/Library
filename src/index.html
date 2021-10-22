@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Library</title>
+      <link rel="stylesheet" href="style.css" />
+   </head>
+   <body>
+      <div class="container">
+         <!-- Dropdown menu -->
+         <div class="dropdown d-flex f-centered mb-30">
+            <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton">Dropdown button</button>
+            <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
+               <a href="#" class="dropdown-item">Action</a>
+               <a href="#" class="dropdown-item">Action #2</a>
+               <a href="#" class="dropdown-item">Action #3</a>
+            </div>
+         </div>
+
+         <!-- Buttons -->
+         <div class="buttons d-flex f-space-around">
+            <button class="btn btn-primary m-20" id="first">Fade out first text</button>
+            <button class="btn btn-dark m-20" data-count="second">Fade out second text</button>
+            <button class="btn btn-warning m-20">Fade out all texts</button>
+            <button class="btn btn-danger m-20">Danger texts</button>
+         </div>
+
+         <!-- Card -->
+         <div class="goods d-flex f-space-around">
+            <div class="card">
+               <img
+                  class="card-img"
+                  src="https://i.obozrevatel.com/news/2020/12/10/vifleemskaya-zvezda.jpg"
+                  alt="photo"
+               />
+               <div class="card-body">
+                  <div class="card-title">Card title</div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia itaque placeat qui suscipit.
+                  </p>
+                  <a href="#" id="trigger" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                     >Link to</a
+                  >
+               </div>
+            </div>
+            <div class="card">
+               <img class="card-img" src="https://i.obozrevatel.com/2019/6/7/pogoda.jpg" alt="photo" />
+               <div class="card-body">
+                  <div class="card-title">Card title #2</div>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia itaque placeat qui suscipit.
+                  </p>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Link to</a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Modal -->
+         <!-- <div class="modal" id="exampleModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button class="close" data-close>
+                        <span>&times;</span>
+                    </button>
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            Modal title
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum minus doloremque nesciunt enim rem quam corporis? Dolorem pariatur magnam distinctio perferendis. Ratione dolorem voluptates iusto facilis odit veritatis, suscipit voluptatibus!
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-close>Close</button>
+                        <button class="btn btn-success">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+         <div class="modal" id="exampleModal2">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <button class="close" data-close>
+                     <span>&times;</span>
+                  </button>
+                  <div class="modal-header">
+                     <div class="modal-title">Modal title #2</div>
+                  </div>
+                  <div class="modal-body">Lorem ipsum dolor sit</div>
+                  <div class="modal-footer">
+                     <button class="btn btn-danger" data-close>Close</button>
+                     <button class="btn btn-success">Save changes</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Tabs -->
+         <div class="tab mt-20 block-center">
+            <div class="tab-panel" data-tabpanel>
+               <div class="tab-item tab-item--active">Content 1</div>
+               <div class="tab-item">Content 2</div>
+               <div class="tab-item">Content 3</div>
+               <div class="dropdown block-center d-flex f-centered">
+                  <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton2">Dropdown button</button>
+                  <div class="dropdown-menu" data-toggle-id="dropdownMenuButton2">
+                     <a href="#" class="dropdown-item">Action</a>
+                     <a href="#" class="dropdown-item">Action #2</a>
+                     <a href="#" class="dropdown-item">Action #3</a>
+                  </div>
+               </div>
+            </div>
+            <div class="tab-content tab-content--active">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat laboriosam blanditiis omnis? Ab
+               molestias tempora beatae ex itaque cumque, velit modi, molestiae debitis earum dolor quae quis.
+               Ipsum, omnis voluptatem!
+               <br />
+               <br />
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet voluptates ipsum delectus vitae
+               similique earum veniam? Odit soluta quibusdam laudantium molestias perferendis ad voluptates, earum
+               ea deserunt architecto provident ipsum.
+            </div>
+            <div class="tab-content">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat laboriosam blanditiis omnis? Ab
+               molestias tempora beatae ex itaque cumque, velit modi, molestiae debitis earum dolor quae quis.
+               Ipsum, omnis voluptatem!
+               <br />
+               <br />
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet voluptates ipsum delectus vitae
+               similique earum veniam? Odit soluta quibusdam laudantium molestias perferendis ad voluptates, earum
+               ea deserunt architecto provident ipsum.
+               <br />
+               <br />
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet voluptates ipsum delectus vitae
+               similique earum veniam? Odit soluta quibusdam laudantium molestias perferendis ad voluptates, earum
+               ea deserunt architecto provident ipsum.
+            </div>
+            <div class="tab-content">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat laboriosam blanditiis omnis? Ab
+               molestias tempora beatae ex itaque cumque, velit modi, molestiae debitis earum dolor quae quis.
+               Ipsum, omnis voluptatem!
+            </div>
+         </div>
+
+         <!-- Accordion -->
+         <div class="accordion mt-20 block-center">
+            <div class="accordion-head">
+               <span>Collapse first element</span>
+            </div>
+            <div class="accordion-content">
+               <div class="accordion-inner">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem voluptatibus fuga est cupiditate
+                  debitis harum repudiandae modi quia. Enim nobis recusandae totam error veniam quod consequatur
+                  nulla, debitis mollitia laborum!
+               </div>
+            </div>
+            <div class="accordion-head">
+               <span>Collapse second element</span>
+            </div>
+            <div class="accordion-content">
+               <div class="accordion-inner">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem voluptatibus fuga est cupiditate
+                  debitis harum repudiandae modi quia. Enim nobis recusandae totam error veniam quod consequatur
+                  nulla, debitis mollitia laborum!
+               </div>
+            </div>
+         </div>
+
+         <!-- Carousel -->
+         <div class="carousel" id="example">
+            <ol class="carousel-indicators">
+               <li data-slide-to="0" class="active"></li>
+               <li data-slide-to="1"></li>
+               <li data-slide-to="2"></li>
+               <li data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-slides">
+                  <div class="carousel-item">
+                     <img
+                        src="https://wall.bestcarmagz.net/sites/default/files/moraine-lake-wallpapers-37629-2296788.png"
+                        alt="photo"
+                     />
+                  </div>
+                  <div class="carousel-item">
+                     <img
+                        src="https://images.pexels.com/photos/1363876/pexels-photo-1363876.jpeg?cs=srgb&dl=calm-body-of-water-1363876.jpg&fm=jpg"
+                        alt="photo"
+                     />
+                  </div>
+                  <div class="carousel-item">
+                     <img
+                        src="https://images.wallpaperscraft.com/image/single/eiffel_tower_paris_france_sky_62550_1280x720.jpg"
+                        alt="photo"
+                     />
+                  </div>
+                  <div class="carousel-item">
+                     <img
+                        src="https://images.wallpaperscraft.ru/image/single/doroga_gory_ograzhdenie_ten_razmetka_29601_1280x720.jpg"
+                        alt="photo"
+                     />
+                  </div>
+               </div>
+            </div>
+            <a href="#" class="carousel-prev" data-slide="prev">
+               <span class="carousel-prev-icon">&lt;</span>
+            </a>
+            <a href="#" class="carousel-next" data-slide="next">
+               <span class="carousel-next-icon">&gt;</span>
+            </a>
+         </div>
+
+         <div class="carousel" id="exampleCarousel2"></div>
+      </div>
+
+      <!-- Form -->
+      <section class="feed">
+         <form class="form">
+            <h1 class="form_title">Заголовок</h1>
+
+            <div class="form_grup">
+               <input class="form_input" type="text" name="name" placeholder=" " />
+               <label class="form_label">Введите имя</label>
+            </div>
+            <div class="form_grup">
+               <input class="form_input tel" type="tel" data-validate-field="tel" name="tel" placeholder=" " />
+               <label class="form_label">Введите телефон</label>
+            </div>
+            <div class="form_grup">
+               <input class="form_input" type="email" data-validate-field="email" name="email" placeholder=" " />
+               <label class="form_label">Введите email</label>
+            </div>
+            <div class="form_grup">
+               <input class="form_input" type="password" placeholder=" " />
+               <label class="form_label">Пароль</label>
+            </div>
+            <div class="form_grup">
+               <textarea
+                  class="form_input"
+                  type="text"
+                  name="message"
+                  cols="30"
+                  rows="5"
+                  placeholder=" "
+               ></textarea>
+               <label class="form_label">Сообщение</label>
+            </div>
+            <div class="form_grup">
+               <input class="form_input file_input" type="file" name="file[]" multiple />
+               <label class="form_label">Прикрепить файл</label>
+            </div>
+            <button class="form_button btn btn-primary" type="submit">Отправить</button>
+         </form>
+      </section>
+
+      <script src="script.js"></script>
+   </body>
+</html>
