@@ -6,10 +6,7 @@ var _typeof =
            return typeof obj;
         }
       : function (obj) {
-           return obj &&
-              typeof Symbol === "function" &&
-              obj.constructor === Symbol &&
-              obj !== Symbol.prototype
+           return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype
               ? "symbol"
               : typeof obj;
         };
@@ -64,8 +61,7 @@ function _defineProperty(obj, key, value) {
    }
 
    function Promise(fn) {
-      if (_typeof(this) !== "object")
-         throw new TypeError("Promises must be constructed via new");
+      if (_typeof(this) !== "object") throw new TypeError("Promises must be constructed via new");
       if (typeof fn !== "function") throw new TypeError("not a function");
       this._state = 0;
       this._handled = false;
@@ -85,13 +81,9 @@ function _defineProperty(obj, key, value) {
       }
       self._handled = true;
       Promise._immediateFn(function () {
-         var cb =
-            self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+         var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
          if (cb === null) {
-            (self._state === 1 ? resolve : reject)(
-               deferred.promise,
-               self._value
-            );
+            (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
             return;
          }
          var ret;
@@ -108,13 +100,10 @@ function _defineProperty(obj, key, value) {
    function resolve(self, newValue) {
       try {
          // Promise Resolution Procedure: https://github.com/promises-aplus/promises-spec#the-promise-resolution-procedure
-         if (newValue === self)
-            throw new TypeError("A promise cannot be resolved with itself.");
+         if (newValue === self) throw new TypeError("A promise cannot be resolved with itself.");
          if (
             newValue &&
-            ((typeof newValue === "undefined"
-               ? "undefined"
-               : _typeof(newValue)) === "object" ||
+            ((typeof newValue === "undefined" ? "undefined" : _typeof(newValue)) === "object" ||
                typeof newValue === "function")
          ) {
             var then = newValue.then;
@@ -213,8 +202,7 @@ function _defineProperty(obj, key, value) {
             try {
                if (
                   val &&
-                  ((typeof val === "undefined" ? "undefined" : _typeof(val)) ===
-                     "object" ||
+                  ((typeof val === "undefined" ? "undefined" : _typeof(val)) === "object" ||
                      typeof val === "function")
                ) {
                   var then = val.then;
@@ -247,8 +235,7 @@ function _defineProperty(obj, key, value) {
    Promise.resolve = function (value) {
       if (
          value &&
-         (typeof value === "undefined" ? "undefined" : _typeof(value)) ===
-            "object" &&
+         (typeof value === "undefined" ? "undefined" : _typeof(value)) === "object" &&
          value.constructor === Promise
       ) {
          return value;
@@ -405,11 +392,8 @@ function _defineProperty(obj, key, value) {
       this.elements = [];
       this.tooltip = this.options.tooltip || {};
       this.tooltipFadeOutTime = this.tooltip.fadeOutTime || 5000;
-      this.tooltipFadeOutClass =
-         this.tooltip.fadeOutClass || "just-validate-tooltip-hide";
-      this.tooltipSelectorWrap = document.querySelectorAll(
-         this.tooltip.selectorWrap
-      ).length
+      this.tooltipFadeOutClass = this.tooltip.fadeOutClass || "just-validate-tooltip-hide";
+      this.tooltipSelectorWrap = document.querySelectorAll(this.tooltip.selectorWrap).length
          ? document.querySelectorAll(this.tooltip.selectorWrap)
          : document.querySelectorAll(".just-validate-tooltip-container");
       this.bindHandlerKeyup = this.handlerKeyup.bind(this);
@@ -466,14 +450,13 @@ function _defineProperty(obj, key, value) {
       },
 
       defaultMessages: {
-         required: "The field is required",
-         email: "Please, type a valid email",
+         required: "Это обязательное поле",
+         email: "Email введён не верно",
          maxLength: "The field must contain a maximum of :value characters",
          minLength: "The field must contain a minimum of :value characters",
          password: "Password is not valid",
          remote: "Email already exists",
-         strength:
-            "Password must contents at least one uppercase letter, one lowercase letter and one number",
+         strength: "Password must contents at least one uppercase letter, one lowercase letter and one number",
          function: "Function returned false",
       },
 
@@ -497,12 +480,7 @@ function _defineProperty(obj, key, value) {
          this.renderErrors();
       },
 
-      setterEventListener: function setterEventListener(
-         item,
-         event,
-         handler,
-         type
-      ) {
+      setterEventListener: function setterEventListener(item, event, handler, type) {
          if (event === "keyup") {
             handler = this.bindHandlerKeyup;
          }
@@ -540,15 +518,9 @@ function _defineProperty(obj, key, value) {
             this.invalidFormCallback(this.result);
          }
 
-         var $firstErrorField = document.querySelector(
-            ".js-validate-error-field"
-         );
+         var $firstErrorField = document.querySelector(".js-validate-error-field");
 
-         if (
-            this.focusWrongField &&
-            $firstErrorField &&
-            $firstErrorField.focus
-         ) {
+         if (this.focusWrongField && $firstErrorField && $firstErrorField.focus) {
             $firstErrorField.focus();
          }
       },
@@ -697,12 +669,7 @@ function _defineProperty(obj, key, value) {
                });
             }
 
-            _this2.setterEventListener(
-               item,
-               "keyup",
-               _this2.handlerKeyup,
-               "add"
-            );
+            _this2.setterEventListener(item, "keyup", _this2.handlerKeyup, "add");
 
             if (!isElemInGroup) {
                _this2.elements.push({
@@ -839,9 +806,7 @@ function _defineProperty(obj, key, value) {
          var messages = this.messages || this.defaultMessages;
          var customMessage =
             (messages[name] && messages[name][rule]) ||
-            (this.messages &&
-               typeof this.messages[name] === "string" &&
-               messages[name]) ||
+            (this.messages && typeof this.messages[name] === "string" && messages[name]) ||
             // (messages[name][rule]) ||
             this.defaultMessages[rule] ||
             this.DEFAULT_REMOTE_ERROR;
@@ -902,11 +867,7 @@ function _defineProperty(obj, key, value) {
          for (var rule in rules) {
             var ruleValue = rules[rule];
 
-            if (
-               rule !== RULE_REQUIRED &&
-               rule !== RULE_FUNCTION &&
-               value == ""
-            ) {
+            if (rule !== RULE_REQUIRED && rule !== RULE_FUNCTION && value == "") {
                return;
             }
             switch (rule) {
@@ -1006,9 +967,7 @@ function _defineProperty(obj, key, value) {
                case RULE_STRENGTH: {
                   if (
                      !ruleValue ||
-                     (typeof ruleValue === "undefined"
-                        ? "undefined"
-                        : _typeof(ruleValue)) !== "object"
+                     (typeof ruleValue === "undefined" ? "undefined" : _typeof(ruleValue)) !== "object"
                   ) {
                      break;
                   }
@@ -1026,9 +985,7 @@ function _defineProperty(obj, key, value) {
                         regexp = this.REGEXP.strengthPass;
 
                         // eslint-disable-next-line no-console
-                        console.error(
-                           "Custom regexp for strength rule is not valid. Default regexp was used."
-                        );
+                        console.error("Custom regexp for strength rule is not valid. Default regexp was used.");
                      }
 
                      if (regexp.test(value)) {
@@ -1064,15 +1021,8 @@ function _defineProperty(obj, key, value) {
                      method = ruleValue.method,
                      sendParam = ruleValue.sendParam;
 
-                  var $elem = this.$form.querySelector(
-                     'input[data-validate-field="' + name + '"]'
-                  );
-                  this.setterEventListener(
-                     $elem,
-                     "keyup",
-                     this.handlerKeyup,
-                     "remove"
-                  );
+                  var $elem = this.$form.querySelector('input[data-validate-field="' + name + '"]');
+                  this.setterEventListener($elem, "keyup", this.handlerKeyup, "remove");
 
                   this.promisesRemote.push(
                      this.validateRemote({
@@ -1118,9 +1068,7 @@ function _defineProperty(obj, key, value) {
 
          for (var _item in this.result) {
             var message = this.result[_item].message;
-            var $elems = this.$form.querySelectorAll(
-               '[data-validate-field="' + _item + '"]'
-            );
+            var $elems = this.$form.querySelectorAll('[data-validate-field="' + _item + '"]');
 
             var $elem = $elems[$elems.length - 1];
 
@@ -1134,9 +1082,7 @@ function _defineProperty(obj, key, value) {
             $elem.classList.add("js-validate-error-field");
 
             if ($elem.type === "checkbox" || $elem.type === "radio") {
-               var $label = document.querySelector(
-                  'label[for="' + $elem.getAttribute("id") + '"]'
-               );
+               var $label = document.querySelector('label[for="' + $elem.getAttribute("id") + '"]');
 
                if ($elem.parentNode.tagName.toLowerCase() === "label") {
                   $elem.parentNode.parentNode.insertBefore(div, null);
@@ -1162,9 +1108,7 @@ function _defineProperty(obj, key, value) {
       hideTooltips: function hideTooltips() {
          var _this6 = this;
 
-         var $elemsErrorLabel = document.querySelectorAll(
-            ".js-validate-error-label"
-         );
+         var $elemsErrorLabel = document.querySelectorAll(".js-validate-error-label");
 
          $elemsErrorLabel.forEach(function (item) {
             item.classList.add(_this6.tooltipFadeOutClass);
@@ -1174,9 +1118,7 @@ function _defineProperty(obj, key, value) {
       },
 
       lockForm: function lockForm() {
-         var $elems = this.$form.querySelectorAll(
-            "input, textarea, button, select"
-         );
+         var $elems = this.$form.querySelectorAll("input, textarea, button, select");
          for (var i = 0, len = $elems.length; i < len; ++i) {
             $elems[i].setAttribute("disabled", "disabled");
             $elems[i].style.pointerEvents = "none";
@@ -1186,9 +1128,7 @@ function _defineProperty(obj, key, value) {
       },
 
       unlockForm: function unlockForm() {
-         var $elems = this.$form.querySelectorAll(
-            "input, textarea, button, select"
-         );
+         var $elems = this.$form.querySelectorAll("input, textarea, button, select");
          for (var i = 0, len = $elems.length; i < len; ++i) {
             $elems[i].removeAttribute("disabled");
             $elems[i].style.pointerEvents = "";

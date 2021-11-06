@@ -3001,30 +3001,68 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (d
   return this;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeInLeft = function (dur, display, fin) {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.slideInLeft = function (dur, display, fin) {
   for (let i = 0; i < this.length; i++) {
     this[i].style.display = display || "block";
 
-    const _fadeInLeft = complection => {
+    const _slideInLeft = complection => {
+      this[i].style.opacity = complection;
       this[i].style.transform = `translateX(${-110 + complection * 110}%)`;
     };
 
-    const ani = this.animateOverTime(dur, _fadeInLeft, fin);
+    const ani = this.animateOverTime(dur, _slideInLeft, fin);
     requestAnimationFrame(ani);
   }
 
   return this;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeInRight = function (dur, display, fin) {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.slideInRight = function (dur, display, fin) {
   for (let i = 0; i < this.length; i++) {
     this[i].style.display = display || "block";
 
-    const _fadeInRight = complection => {
+    const _slideInRight = complection => {
+      this[i].style.opacity = complection;
       this[i].style.transform = `translateX(${110 - complection * 110}%)`;
     };
 
-    const ani = this.animateOverTime(dur, _fadeInRight, fin);
+    const ani = this.animateOverTime(dur, _slideInRight, fin);
+    requestAnimationFrame(ani);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.zoomIn = function (dur, display, fin) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].style.display = display || "block";
+
+    const _zoomIn = complection => {
+      this[i].style.opacity = complection;
+      this[i].style.transform = `scale(${complection})`;
+    };
+
+    const ani = this.animateOverTime(dur, _zoomIn, fin);
+    requestAnimationFrame(ani);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.zoomOut = function (dur, display, fin) {
+  for (let i = 0; i < this.length; i++) {
+    this[i].style.display = display || "block";
+
+    const _zoomOut = complection => {
+      this[i].style.opacity = 1 - complection;
+      this[i].style.transform = `scale(${1 * (1 - complection)})`;
+
+      if (complection === 1) {
+        this[i].style.display = "none";
+      }
+    };
+
+    const ani = this.animateOverTime(dur, _zoomOut, fin);
     requestAnimationFrame(ani);
   }
 
@@ -3533,8 +3571,8 @@ function _defineProperty(obj, key, value) {
       }
     },
     defaultMessages: {
-      required: "The field is required",
-      email: "Please, type a valid email",
+      required: "Это обязательное поле",
+      email: "Email введён не верно",
       maxLength: "The field must contain a maximum of :value characters",
       minLength: "The field must contain a minimum of :value characters",
       password: "Password is not valid",

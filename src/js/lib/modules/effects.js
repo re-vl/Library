@@ -86,30 +86,67 @@ $.prototype.fadeToggle = function (dur, display, fin) {
    return this;
 };
 
-$.prototype.fadeInLeft = function (dur, display, fin) {
+$.prototype.slideInLeft = function (dur, display, fin) {
    for (let i = 0; i < this.length; i++) {
       this[i].style.display = display || "block";
 
-      const _fadeInLeft = (complection) => {
+      const _slideInLeft = (complection) => {
+         this[i].style.opacity = complection;
          this[i].style.transform = `translateX(${-110 + complection * 110}%)`;
       };
 
-      const ani = this.animateOverTime(dur, _fadeInLeft, fin);
+      const ani = this.animateOverTime(dur, _slideInLeft, fin);
       requestAnimationFrame(ani);
    }
 
    return this;
 };
 
-$.prototype.fadeInRight = function (dur, display, fin) {
+$.prototype.slideInRight = function (dur, display, fin) {
    for (let i = 0; i < this.length; i++) {
       this[i].style.display = display || "block";
 
-      const _fadeInRight = (complection) => {
+      const _slideInRight = (complection) => {
+         this[i].style.opacity = complection;
          this[i].style.transform = `translateX(${110 - complection * 110}%)`;
       };
 
-      const ani = this.animateOverTime(dur, _fadeInRight, fin);
+      const ani = this.animateOverTime(dur, _slideInRight, fin);
+      requestAnimationFrame(ani);
+   }
+
+   return this;
+};
+
+$.prototype.zoomIn = function (dur, display, fin) {
+   for (let i = 0; i < this.length; i++) {
+      this[i].style.display = display || "block";
+
+      const _zoomIn = (complection) => {
+         this[i].style.opacity = complection;
+         this[i].style.transform = `scale(${complection})`;
+      };
+
+      const ani = this.animateOverTime(dur, _zoomIn, fin);
+      requestAnimationFrame(ani);
+   }
+
+   return this;
+};
+
+$.prototype.zoomOut = function (dur, display, fin) {
+   for (let i = 0; i < this.length; i++) {
+      this[i].style.display = display || "block";
+
+      const _zoomOut = (complection) => {
+         this[i].style.opacity = 1 - complection;
+         this[i].style.transform = `scale(${1 * (1 - complection)})`;
+         if (complection === 1) {
+            this[i].style.display = "none";
+         }
+      };
+
+      const ani = this.animateOverTime(dur, _zoomOut, fin);
       requestAnimationFrame(ani);
    }
 
